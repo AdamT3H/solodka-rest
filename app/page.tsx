@@ -129,7 +129,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-{/* 
+
       <div className="container">
         <div className={styles.philosophy}>
           <h2 className={styles.philosophyTitle}>
@@ -196,7 +196,7 @@ export default function Home() {
                 <div className={styles.metaItem}>
                   <span className={styles.metaLabel}>формат</span>
                   <span className={styles.metaDot}>-</span>
-                  <span className={styles.metaValue}>онлайн - <br/>консультація</span>
+                  <span className={styles.metaValue}>онлайн <br/>консультація</span>
                 </div>
 
                 <div className={styles.metaItem}>
@@ -325,22 +325,13 @@ export default function Home() {
               </div>
 
               <button className={styles.button}>
-                Отримати гайд
+                Обговорити співпрацю
               </button>
             </div>
 
           </div>
         </div>
       </div>
-
-
-
-
-
-
-
-
-
 
       <div className={styles.contactFormSectionBackGround}>
         <div className="container">
@@ -378,7 +369,7 @@ export default function Home() {
                 <option value="staff-consultation">Гайд по сервісу</option>
               </select>
 
-              <textarea
+              <textarea required
                 name="situation"
                 placeholder="Що зараз не працює? З чим хочеш розібратись?"
                 rows={4}
@@ -397,7 +388,7 @@ export default function Home() {
 
           </div>
         </div>
-      </div> */}
+      </div> 
     </>
   );
 }
