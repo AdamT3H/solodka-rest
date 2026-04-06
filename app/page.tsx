@@ -415,7 +415,7 @@ export default function Home() {
                 <option value="owner-consultation">Консультація для власника / керівника</option>
                 <option value="system-work">Системна робота з закладом</option>
                 <option value="staff-consultation">Консультація для працівників</option>
-                <option value="staff-consultation">Гайд по сервісу</option>
+                <option value="service-guide">Гайд по сервісу</option>
               </select>
 
               <textarea required
