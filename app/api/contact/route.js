@@ -1,4 +1,17 @@
+const rateLimit = new Map();
+
 export async function POST(req) {
+    const ip = req.headers.get("x-forwarded-for") || "unknown";
+
+    const now = Date.now();
+    const lastRequest = rateLimit.get(ip);
+  
+    if (lastRequest && now - lastRequest < 60_000) {
+      return Response.json({ success: false, error: "Too many requests" });
+    }
+  
+    rateLimit.set(ip, now);
+    
     const data = await req.json();
   
     const interestMap = {

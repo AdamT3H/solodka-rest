@@ -5,8 +5,11 @@ import styles from "../app/home.module.css";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
+import { useState } from "react";
 
 export default function Home() {
+  const [status, setStatus] = useState("idle"); 
+
   return (
     <>
       <div className="container">
@@ -397,9 +400,10 @@ export default function Home() {
                 const result = await res.json();
             
                 if (result.success) {
-                  alert("Відправлено ✅");
+                  setStatus("success");
+                  e.target.reset;
                 } else {
-                  alert("Помилка ❌");
+                  setStatus("error");
                 }
               }}
             >
@@ -426,8 +430,16 @@ export default function Home() {
 
               <input type="url" name="link" placeholder="Посилання на заклад / Instagram" />
 
-              <button type="submit" className={styles.submitButton}>
-                Надіслати запит
+              <button type="submit"   
+                className={`${styles.submitButton} 
+                  ${status === "success" ? styles.success : ""} 
+                  ${status === "loading" ? styles.loading : ""}`}
+                disabled={status === "loading"} 
+              >
+                {status === "loading" && "Відправка..."}
+                {status === "success" && "Відправлено ✅"}
+                {status === "idle" && "Надіслати запит"}
+                {status === "error" && "Помилка ❌"}
               </button>
 
               <p className={styles.smallText}>
