@@ -22,7 +22,11 @@ export default function Home() {
               у цілісну систему. Забезпечую порядок, який формує повагу до закладу.
             </p>
 
-            <button className={styles.button}>
+            <button className={styles.button} 
+              onClick={() => {
+                document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
               Дізнатись більше
             </button>
           </div>
@@ -206,7 +210,12 @@ export default function Home() {
                 </div>
               </div>
 
-              <button className={styles.button}>
+              <button 
+                className={styles.button}
+                onClick={() => {
+                  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
                 Обговорити співпрацю
               </button>
             </div>
@@ -246,7 +255,12 @@ export default function Home() {
                 </div>
               </div>
 
-              <button className={styles.button}>
+              <button 
+                className={styles.button}
+                onClick={() => {
+                  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
                 Обговорити співпрацю
               </button>
             </div>
@@ -285,7 +299,12 @@ export default function Home() {
                 </div>
               </div>
 
-              <button className={styles.button}>
+              <button 
+                className={styles.button}
+                onClick={() => {
+                  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
                 Обговорити співпрацю
               </button>
             </div>
@@ -324,7 +343,12 @@ export default function Home() {
                 </div>
               </div>
 
-              <button className={styles.button}>
+              <button 
+                className={styles.button}
+                onClick={() => {
+                  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
                 Обговорити співпрацю
               </button>
             </div>
@@ -333,7 +357,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className={styles.contactFormSectionBackGround}>
+      <div className={styles.contactFormSectionBackGround} id="contact">
         <div className="container">
           <div className={styles.contactFormSection}>
 
@@ -353,7 +377,32 @@ export default function Home() {
               </div>
             </div>
 
-            <form className={styles.contactForm}>
+            <form 
+              className={styles.contactForm}
+              onSubmit={async (e) => {
+                e.preventDefault();
+            
+                const formData = new FormData(e.target);
+            
+                const data = Object.fromEntries(formData);
+            
+                const res = await fetch("/api/contact", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify(data),
+                });
+            
+                const result = await res.json();
+            
+                if (result.success) {
+                  alert("Відправлено ✅");
+                } else {
+                  alert("Помилка ❌");
+                }
+              }}
+            >
               <div className={styles.formRow}>
                 <input type="text" name="name" placeholder="Ім’я" required />
                 <input type="text" name="contact" placeholder="Телефон / Telegram" required />
