@@ -32,7 +32,7 @@
 }
 
 .button {
-  background: linear-gradient(0deg, #ea8526, #ffca9c);
+  background: linear-gradient(0deg, #faa95d, #fed0a8);
   color: #2b2b2b;
 
   padding: 14px 28px;
@@ -482,7 +482,7 @@
   border: none;
   border-radius: 8px;
 
-  background: linear-gradient(135deg, #ea8526, #ffb36b);
+  background: linear-gradient(0deg, #faa95d, #fed0a8);
   color: #2b2b2b;
 
   font-weight: 600;

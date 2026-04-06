@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root { 
-  --background: #f5f1df;      /* світлий бежевий фон */
+  --background: #f7f5ec;      /* світлий бежевий фон */
   --foreground: #292824;     /* темно-зелений текст */
 
   --primary: #507d53;         /* основний зелений */
