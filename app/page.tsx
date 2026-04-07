@@ -216,10 +216,11 @@ export default function Home() {
               <button 
                 className={styles.button}
                 onClick={() => {
-                  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+                  // document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+                  window.location.href = "https://www.google.com/"
                 }}
               >
-                Обговорити співпрацю
+                Придбати
               </button>
             </div>
 
@@ -261,10 +262,11 @@ export default function Home() {
               <button 
                 className={styles.button}
                 onClick={() => {
-                  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+                  // document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+                  window.location.href = "https://www.google.com/"
                 }}
               >
-                Обговорити співпрацю
+                Придбати
               </button>
             </div>
 
@@ -305,10 +307,11 @@ export default function Home() {
               <button 
                 className={styles.button}
                 onClick={() => {
-                  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+                  // document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+                  window.location.href = "https://www.google.com/"
                 }}
               >
-                Обговорити співпрацю
+                Придбати
               </button>
             </div>
 
@@ -349,10 +352,11 @@ export default function Home() {
               <button 
                 className={styles.button}
                 onClick={() => {
-                  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+                  // document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+                  window.location.href = "https://www.google.com/"
                 }}
               >
-                Обговорити співпрацю
+                Придбати
               </button>
             </div>
 
