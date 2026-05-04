@@ -211,7 +211,7 @@ export default function Home() {
                 <div className={styles.metaItem}>
                   <span className={styles.metaLabel}>вартість</span>
                   <span className={styles.metaDot}>-</span>
-                  <span className={styles.metaValue}>150$</span>
+                  <span className={styles.metaValue}>5999 грн</span>
                 </div>
               </div>
 
@@ -304,7 +304,7 @@ export default function Home() {
                 <div className={styles.metaItem}>
                   <span className={styles.metaLabel}>вартість</span>
                   <span className={styles.metaDot}>-</span>
-                  <span className={styles.metaValue}>50$</span>
+                  <span className={styles.metaValue}>1999 грн</span>
                 </div>
               </div>
 
@@ -501,6 +501,10 @@ export default function Home() {
               </button>
               <div className={`${styles.additionalInfoSectionSubInfo} ${openSection === "about" ? styles.additionalInfoSectionSubInfoOpen : styles.additionalInfoSectionSubInfoClose}`}>
                 ФОП Бачинська Оксана Олегівна
+              </div>
+
+              <div className={`${styles.additionalInfoSectionSubInfo} ${openSection === "about" ? styles.additionalInfoSectionSubInfoOpen : styles.additionalInfoSectionSubInfoClose}`}>
+                Адреса компанії: Львівська обл., м. Борислав, вул. С. Бандери, 80
               </div>
             </div>
 
