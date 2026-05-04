@@ -506,6 +506,121 @@
   opacity: 0.6;
 }
 
+.additionalInfoSectionBackGround {
+  width: 100%;
+  padding: 50px 0;
+  background: var(--card);
+}
+
+.agreementRow {
+  margin-top: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.agreementRow label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  opacity: 0.75;
+  cursor: pointer;
+  font-family: var(--font-main);
+}
+
+.agreementRow input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #634638;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.button:disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.formCheckbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 13px;
+  opacity: 0.7;
+  font-family: var(--font-main);
+  line-height: 1.5;
+}
+
+.formCheckbox input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #634638;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.additionalInfoSection{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.additionalInfoSectionName {
+  width: fit-content;
+  gap: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #e3e3e3;
+  font-size: 16px;
+  padding: 0;
+  text-align: left;
+}
+
+.additionalInfoSectionSubInfo{
+  font-size: 16px;
+  opacity: 0.75;
+  color: #e3e3e3;
+  padding-left: 50px;
+  transition: max-height 0.35s ease, opacity 0.35s ease, margin 0.35s ease;
+  opacity: 0;
+  max-height: 0;
+  margin-bottom: 0;
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+.arrowOpen {
+  transform: rotate(180deg);
+}
+
+.additionalInfoSectionSubInfoOpen {
+  height: auto;
+  margin-top: 10px;
+  opacity: 1;
+  max-height: 300px;
+  margin-bottom: 16px;
+}
+
+.additionalInfoSectionSubInfoClose{
+  overflow: hidden;
+  height: 0px;
+  opacity: 0;
+  max-height: 0;
+  margin-bottom: 0;
+}
+
 @media (max-width: 600px) {
   .title {
     font-size: 34px;
@@ -577,5 +692,14 @@
     width: 100%;
     padding: 100px 0 0 0;
     background: linear-gradient(180deg, #f7f7f7, #ffffff);
+  }
+
+  .additionalInfoSectionSubInfo{
+    padding-left: 15px;
+    font-size: 14px;
+  }
+
+  .additionalInfoSectionSubInfoOpen {
+    max-height: 600px;
   }
 }

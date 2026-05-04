@@ -9,6 +9,8 @@ import { useState } from "react";
 
 export default function Home() {
   const [status, setStatus] = useState("idle"); 
+  const [agreed, setAgreed] = useState(false);
+  const [openSection, setOpenSection] = useState<string | null>(null);
 
   return (
     <>
@@ -215,6 +217,7 @@ export default function Home() {
 
               <button 
                 className={styles.button}
+                disabled={!agreed}
                 onClick={() => {
                   // document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
                   window.location.href = "https://www.google.com/"
@@ -261,6 +264,7 @@ export default function Home() {
 
               <button 
                 className={styles.button}
+                disabled={!agreed}
                 onClick={() => {
                   // document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
                   window.location.href = "https://www.google.com/"
@@ -306,6 +310,7 @@ export default function Home() {
 
               <button 
                 className={styles.button}
+                disabled={!agreed}
                 onClick={() => {
                   // document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
                   window.location.href = "https://www.google.com/"
@@ -351,6 +356,7 @@ export default function Home() {
 
               <button 
                 className={styles.button}
+                disabled={!agreed}
                 onClick={() => {
                   // document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
                   window.location.href = "https://www.google.com/"
@@ -360,6 +366,17 @@ export default function Home() {
               </button>
             </div>
 
+          </div>
+
+          <div className={styles.agreementRow}>
+            <label>
+              <input 
+                type="checkbox" 
+                checked={agreed} 
+                onChange={(e) => setAgreed(e.target.checked)} 
+              />
+              Я ознайомився(лась) з умовами надання послуг та даю згоду на обробку персональних даних
+            </label>
           </div>
         </div>
       </div>
@@ -434,6 +451,11 @@ export default function Home() {
 
               <input type="url" name="link" placeholder="Посилання на заклад / Instagram" />
 
+              <label className={styles.formCheckbox}>
+                <input type="checkbox" name="agreement" required />
+                Я ознайомився(лась) з умовами надання послуг та даю згоду на обробку персональних даних
+              </label>
+
               <button type="submit"   
                 className={`${styles.submitButton} 
                   ${status === "success" ? styles.success : ""} 
@@ -454,6 +476,77 @@ export default function Home() {
           </div>
         </div>
       </div> 
+
+      <div className={styles.additionalInfoSectionBackGround}>
+        <div className="container">
+          <div className={styles.additionalInfoSection}>
+
+            <div className={styles.additionalInfoSectionElem}>
+              <button className={styles.additionalInfoSectionName} onClick={() => setOpenSection(openSection === "contacts" ? null : "contacts")}>
+                <span>Контакти</span>
+                <span className={`${styles.arrow} ${openSection === "contacts" ? styles.arrowOpen : ""}`}>▾</span>
+              </button>
+              <div className={`${styles.additionalInfoSectionSubInfo} ${openSection === "contacts" ? styles.additionalInfoSectionSubInfoOpen : styles.additionalInfoSectionSubInfoClose}`}>
+                Телефон: +380991305525
+              </div>
+              <div className={`${styles.additionalInfoSectionSubInfo} ${openSection === "contacts" ? styles.additionalInfoSectionSubInfoOpen : styles.additionalInfoSectionSubInfoClose}`}>
+                Email: solodkaok18@gmail.com
+              </div>
+            </div>
+
+            <div className={styles.additionalInfoSectionElem}>
+              <button className={styles.additionalInfoSectionName} onClick={() => setOpenSection(openSection === "about" ? null : "about")}>
+                <span>Інформація про мене</span>
+                <span className={`${styles.arrow} ${openSection === "about" ? styles.arrowOpen : ""}`}>▾</span>
+              </button>
+              <div className={`${styles.additionalInfoSectionSubInfo} ${openSection === "about" ? styles.additionalInfoSectionSubInfoOpen : styles.additionalInfoSectionSubInfoClose}`}>
+                ФОП Бачинська Оксана Олегівна
+              </div>
+            </div>
+
+            <div className={styles.additionalInfoSectionElem}>
+              <button className={styles.additionalInfoSectionName} onClick={() => setOpenSection(openSection === "returns" ? null : "returns")}>
+                <span>Умови повернення</span>
+                <span className={`${styles.arrow} ${openSection === "returns" ? styles.arrowOpen : ""}`}>▾</span>
+              </button>
+              <div className={`${styles.additionalInfoSectionSubInfo} ${openSection === "returns" ? styles.additionalInfoSectionSubInfoOpen : styles.additionalInfoSectionSubInfoClose}`}>
+                Оскільки гайд є цифровим продуктом, після оплати та отримання файлу повернення коштів не передбачено. Скасування консультації можливе не пізніше ніж до дати початку — кошти повертаються повністю. У разі скасування після дати початку - кошти не повертаються. Умови повернення обговорюються індивідуально до початку співпраці.
+              </div>
+            </div>
+
+            <div className={styles.additionalInfoSectionElem}>
+              <button className={styles.additionalInfoSectionName} onClick={() => setOpenSection(openSection === "privacy" ? null : "privacy")}>
+                <span>Персональні дані</span>
+                <span className={`${styles.arrow} ${openSection === "privacy" ? styles.arrowOpen : ""}`}>▾</span>
+              </button>
+              <div className={`${styles.additionalInfoSectionSubInfo} ${openSection === "privacy" ? styles.additionalInfoSectionSubInfoOpen : styles.additionalInfoSectionSubInfoClose}`}>
+                Акцептуючи цей Договір, Замовник надає згоду на обробку своїх персональних даних
+                Виконавцем відповідно до Закону України «Про захист персональних даних».
+                Виконавець може обробляти такі дані Замовника: ім’я та прізвище, номер телефону,
+                email, нікнейм у месенджері або соціальній мережі, платіжні дані, інформацію про замовлення
+                та інші дані, які Замовник добровільно надає Виконавцю.
+                Персональні дані використовуються з метою оформлення замовлення, приймання оплати,
+                надання доступу до матеріалів, проведення консультацій, комунікації із Замовником,
+                бухгалтерського та податкового обліку, а також виконання вимог законодавства.
+                Виконавець не передає персональні дані третім особам, крім випадків, необхідних для
+                виконання Договору, проведення платежів, технічного забезпечення сервісів або випадків,
+                прямо передбачених законодавством України.
+              </div>
+            </div>
+
+            {/* <div className={styles.additionalInfoSectionElem}>
+              <button className={styles.additionalInfoSectionName} onClick={() => setOpenSection(openSection === "add" ? null : "add")}>
+                <span>Додаткова інформація</span>
+                <span className={`${styles.arrow} ${openSection === "add" ? styles.arrowOpen : ""}`}>▾</span>
+              </button>
+              <div className={`${styles.additionalInfoSectionSubInfo} ${openSection === "add" ? styles.additionalInfoSectionSubInfoOpen : styles.additionalInfoSectionSubInfoClose}`}>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              </div>
+            </div> */}
+
+          </div>
+        </div>
+      </div>
     </>
   );
 }
