@@ -35,7 +35,6 @@ export default function DownloadPage() {
         textAlign: "center",
         boxShadow: "0 2px 4px rgba(99,70,56,0.06), 0 20px 60px rgba(99,70,56,0.12)",
       }}>
-        {/* Checkmark */}
         <div style={{
           width: 72,
           height: 72,
