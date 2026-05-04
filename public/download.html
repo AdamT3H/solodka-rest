@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Дякуємо за покупку!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --brown: #634638;
+      --brown-light: #8a6252;
+      --cream: #fdf8f3;
+      --cream-dark: #f0e8de;
+      --text: #2a1f1a;
+      --text-muted: #7a6a62;
+      --font-title: 'Cormorant Garamond', serif;
+      --font-main: 'Jost', sans-serif;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--text);
+      font-family: var(--font-main);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 40px 20px;
+      overflow: hidden;
+    }
+
+    /* Background decorative circles */
+    body::before, body::after {
+      content: '';
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    body::before {
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(99,70,56,0.07) 0%, transparent 70%);
+      top: -150px;
+      right: -150px;
+    }
+    body::after {
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(99,70,56,0.05) 0%, transparent 70%);
+      bottom: -100px;
+      left: -100px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 2px;
+      max-width: 520px;
+      width: 100%;
+      padding: 60px 50px;
+      text-align: center;
+      position: relative;
+      box-shadow:
+        0 2px 4px rgba(99,70,56,0.06),
+        0 20px 60px rgba(99,70,56,0.12),
+        0 0 0 1px rgba(99,70,56,0.06);
+      animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    /* Corner decorations */
+    .card::before, .card::after {
+      content: '';
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      border-color: var(--brown);
+      border-style: solid;
+      opacity: 0.3;
+    }
+    .card::before { top: 14px; left: 14px; border-width: 1px 0 0 1px; }
+    .card::after  { bottom: 14px; right: 14px; border-width: 0 1px 1px 0; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .icon-wrap {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 32px;
+      position: relative;
+      animation: fadeUp 0.8s 0.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .icon-circle {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--cream-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .checkmark {
+      width: 36px;
+      height: 36px;
+      stroke: var(--brown);
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .check-path {
+      stroke-dasharray: 50;
+      stroke-dashoffset: 50;
+      animation: drawCheck 0.6s 0.5s ease forwards;
+    }
+
+    @keyframes drawCheck {
+      to { stroke-dashoffset: 0; }
+    }
+
+    .pulse-ring {
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      border: 1px solid rgba(99,70,56,0.25);
+      animation: pulse 2s 0.8s ease-out infinite;
+    }
+
+    @keyframes pulse {
+      0%   { transform: scale(1); opacity: 0.5; }
+      100% { transform: scale(1.4); opacity: 0; }
+    }
+
+    .eyebrow {
+      font-family: var(--font-main);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--brown);
+      opacity: 0.6;
+      margin-bottom: 14px;
+      animation: fadeUp 0.8s 0.15s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .title {
+      font-family: var(--font-title);
+      font-size: 40px;
+      font-weight: 400;
+      line-height: 1.2;
+      letter-spacing: 0.5px;
+      color: var(--text);
+      margin-bottom: 18px;
+      animation: fadeUp 0.8s 0.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .title em {
+      font-style: italic;
+      color: var(--brown);
+    }
+
+    .description {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--text-muted);
+      margin-bottom: 40px;
+      animation: fadeUp 0.8s 0.25s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .divider {
+      width: 40px;
+      height: 1px;
+      background: var(--brown);
+      opacity: 0.2;
+      margin: 0 auto 40px;
+      animation: fadeUp 0.8s 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    /* Progress bar */
+    .progress-wrap {
+      margin-bottom: 36px;
+      animation: fadeUp 0.8s 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .progress-bar {
+      height: 2px;
+      background: var(--cream-dark);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--brown);
+      border-radius: 2px;
+      width: 0%;
+      animation: fillBar 2.5s 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+
+    @keyframes fillBar {
+      to { width: 100%; }
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--brown);
+      color: var(--cream);
+      font-family: var(--font-main);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 16px 32px;
+      border-radius: 2px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 20px rgba(99,70,56,0.25);
+      animation: fadeUp 0.8s 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(99,70,56,0.35);
+      background: var(--brown-light);
+    }
+
+    .btn svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+    }
+
+    .note {
+      margin-top: 20px;
+      font-size: 12px;
+      color: var(--text-muted);
+      opacity: 0.6;
+      animation: fadeUp 0.8s 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .footer-line {
+      margin-top: 40px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(99,70,56,0.1);
+      font-size: 13px;
+      color: var(--text-muted);
+      opacity: 0.7;
+      animation: fadeUp 0.8s 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .footer-line a {
+      color: var(--brown);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .footer-line a:hover { text-decoration: underline; }
+
+    @media (max-width: 560px) {
+      .card { padding: 44px 28px; }
+      .title { font-size: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+  <div class="icon-wrap">
+    <div class="icon-circle">
+      <svg class="checkmark" viewBox="0 0 36 36">
+        <path class="check-path" d="M8 18 l7 7 l13 -13"/>
+      </svg>
+    </div>
+    <div class="pulse-ring"></div>
+  </div>
+
+  <p class="eyebrow">Оплата успішна</p>
+  <h1 class="title">Дякуємо за<br><em>довіру!</em></h1>
+  <p class="description">
+    Ваш гайд вже завантажується.<br>
+    Збережіть його — він завжди буде під рукою.
+  </p>
+
+  <div class="divider"></div>
+
+  <div class="progress-wrap">
+    <div class="progress-label">
+      <span>Підготовка файлу</span>
+      <span id="pct">0%</span>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-fill" id="fill"></div>
+    </div>
+  </div>
+
+  <a href="/guide.pdf" download="guide.pdf" class="btn" id="dlBtn">
+    <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    Завантажити гайд
+  </a>
+
+  <p class="note">Якщо завантаження не почалось — натисніть кнопку вище</p>
+
+  <div class="footer-line">
+    Повернутись на <a href="https://www.solodka-rest.com">solodka-rest.com</a>
+  </div>
+</div>
+
+<script>
+  // Auto-download
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      const a = document.createElement('a');
+      a.href = '/guide.pdf';
+      a.download = 'guide.pdf';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }, 800);
+  });
+
+  // Animate percentage counter
+  const pct = document.getElementById('pct');
+  let current = 0;
+  const duration = 2500;
+  const start = performance.now();
+  function animateCounter(now) {
+    const elapsed = now - start - 600;
+    if (elapsed < 0) { requestAnimationFrame(animateCounter); return; }
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    current = Math.round(eased * 100);
+    pct.textContent = current + '%';
+    if (progress < 1) requestAnimationFrame(animateCounter);
+  }
+  requestAnimationFrame(animateCounter);
+</script>
+
+</body>
+</html>

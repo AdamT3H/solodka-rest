@@ -220,7 +220,7 @@ export default function Home() {
                 disabled={!agreed}
                 onClick={() => {
                   // document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-                  window.location.href = "https://www.google.com/"
+                  window.location.href = "https://secure.wayforpay.com/button/b6762f3af4604"
                 }}
               >
                 Придбати
@@ -266,8 +266,7 @@ export default function Home() {
                 className={styles.button}
                 disabled={!agreed}
                 onClick={() => {
-                  // document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-                  window.location.href = "https://www.google.com/"
+                  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
                 }}
               >
                 Придбати
@@ -313,7 +312,7 @@ export default function Home() {
                 disabled={!agreed}
                 onClick={() => {
                   // document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-                  window.location.href = "https://www.google.com/"
+                  window.location.href = "https://secure.wayforpay.com/page?vkh=69f8c443-dddc-411f-b99f-270022d1dba8"
                 }}
               >
                 Придбати
@@ -350,7 +349,7 @@ export default function Home() {
                 <div className={styles.metaItem}>
                   <span className={styles.metaLabel}>вартість</span>
                   <span className={styles.metaDot}>-</span>
-                  <span className={styles.metaValue}>500 грн</span>
+                  <span className={styles.metaValue}>499 грн</span>
                 </div>
               </div>
 
@@ -359,7 +358,7 @@ export default function Home() {
                 disabled={!agreed}
                 onClick={() => {
                   // document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-                  window.location.href = "https://www.google.com/"
+                  window.location.href = "https://secure.wayforpay.com/button/ba581bd4eb2c1"
                 }}
               >
                 Придбати
@@ -501,10 +500,6 @@ export default function Home() {
               </button>
               <div className={`${styles.additionalInfoSectionSubInfo} ${openSection === "about" ? styles.additionalInfoSectionSubInfoOpen : styles.additionalInfoSectionSubInfoClose}`}>
                 ФОП Бачинська Оксана Олегівна
-              </div>
-
-              <div className={`${styles.additionalInfoSectionSubInfo} ${openSection === "about" ? styles.additionalInfoSectionSubInfoOpen : styles.additionalInfoSectionSubInfoClose}`}>
-                Адреса компанії: Львівська обл., м. Борислав, вул. С. Бандери, 80
               </div>
             </div>
 
