@@ -9,7 +9,6 @@ import { useState } from "react";
 
 export default function Home() {
   const [status, setStatus] = useState("idle"); 
-  const [agreed, setAgreed] = useState(false);
   const [openSection, setOpenSection] = useState<string | null>(null);
 
   return (
@@ -217,10 +216,9 @@ export default function Home() {
 
               <button 
                 className={styles.button}
-                disabled={!agreed}
                 onClick={() => {
-                  // document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-                  window.location.href = "https://secure.wayforpay.com/button/b6762f3af4604"
+                  // window.location.href = "https://secure.wayforpay.com/button/ba581bd4eb2c1";
+                  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
                 }}
               >
                 Придбати
@@ -264,8 +262,8 @@ export default function Home() {
 
               <button 
                 className={styles.button}
-                disabled={!agreed}
-                onClick={() => {
+                onClick={() => {                
+                  // window.location.href = "https://secure.wayforpay.com/button/ba581bd4eb2c1";
                   document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
                 }}
               >
@@ -309,10 +307,9 @@ export default function Home() {
 
               <button 
                 className={styles.button}
-                disabled={!agreed}
                 onClick={() => {
-                  // document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-                  window.location.href = "https://secure.wayforpay.com/page?vkh=69f8c443-dddc-411f-b99f-270022d1dba8"
+                                  // window.location.href = "https://secure.wayforpay.com/button/ba581bd4eb2c1";
+                  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
                 }}
               >
                 Придбати
@@ -355,27 +352,15 @@ export default function Home() {
 
               <button 
                 className={styles.button}
-                disabled={!agreed}
-                onClick={() => {
-                  // document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-                  window.location.href = "https://secure.wayforpay.com/button/ba581bd4eb2c1"
+                onClick={() => {                
+                  // window.location.href = "https://secure.wayforpay.com/button/ba581bd4eb2c1";
+                  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
                 }}
               >
                 Придбати
               </button>
             </div>
 
-          </div>
-
-          <div className={styles.agreementRow}>
-            <label>
-              <input 
-                type="checkbox" 
-                checked={agreed} 
-                onChange={(e) => setAgreed(e.target.checked)} 
-              />
-              Я ознайомився(лась) з умовами надання послуг та даю згоду на обробку персональних даних
-            </label>
           </div>
         </div>
       </div>
@@ -404,26 +389,70 @@ export default function Home() {
               className={styles.contactForm}
               onSubmit={async (e) => {
                 e.preventDefault();
-            
+              
                 const formData = new FormData(e.target);
-            
                 const data = Object.fromEntries(formData);
-            
-                const res = await fetch("/api/contact", {
-                  method: "POST",
-                  headers: {
-                    "Content-Type": "application/json",
-                  },
-                  body: JSON.stringify(data),
-                });
-            
-                const result = await res.json();
-            
-                if (result.success) {
-                  setStatus("success");
-                  e.target.reset;
-                } else {
-                  setStatus("error");
+              
+                localStorage.setItem("checkoutData", JSON.stringify(data));
+                
+                if (data.interest === "owner-consultation") {
+                  const res = await fetch("/api/contact", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data),
+                  });
+                
+                  const result = await res.json();
+                
+                  if (result.success) {
+                    setStatus("success");
+                    window.location.href = "https://secure.wayforpay.com/button/b6762f3af4604";
+                  } else {
+                    setStatus("error");
+                  }
+                } else if (data.interest === "system-work") {
+                  const res = await fetch("/api/contact", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data),
+                  });
+                
+                  const result = await res.json();
+                
+                  if (result.success) {
+                    setStatus("success");
+                  } else {
+                    setStatus("error");
+                  }
+                } else if (data.interest === "staff-consultation") {
+                  const res = await fetch("/api/contact", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data),
+                  });
+                
+                  const result = await res.json();
+                
+                  if (result.success) {
+                    setStatus("success");
+                    window.location.href = "https://secure.wayforpay.com/button/bef447b883390";
+                  } else {
+                    setStatus("error");
+                  }
+                } else if (data.interest === "service-guide") {
+                  const res = await fetch("/api/contact", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data),
+                  });
+                
+                  const result = await res.json();
+                
+                  if (result.success) {
+                    window.location.href = "https://secure.wayforpay.com/button/ba581bd4eb2c1";
+                  } else {
+                    setStatus("error");
+                  }
                 }
               }}
             >
@@ -460,11 +489,12 @@ export default function Home() {
                   ${status === "success" ? styles.success : ""} 
                   ${status === "loading" ? styles.loading : ""}`}
                 disabled={status === "loading"} 
+                
               >
                 {status === "loading" && "Відправка..."}
-                {status === "success" && "Відправлено ✅"}
+                {status === "success" && "Відправлено"}
                 {status === "idle" && "Надіслати запит"}
-                {status === "error" && "Помилка ❌"}
+                {status === "error" && "Помилка"}
               </button>
 
               <p className={styles.smallText}>

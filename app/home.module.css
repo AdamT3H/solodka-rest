@@ -621,6 +621,19 @@
   margin-bottom: 0;
 }
 
+.shake {
+  animation: shake 0.4s;
+  outline: 2px solid red;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  50% { transform: translateX(4px); }
+  75% { transform: translateX(-4px); }
+  100% { transform: translateX(0); }
+}
+
 @media (max-width: 600px) {
   .title {
     font-size: 34px;
