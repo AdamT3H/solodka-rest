@@ -182,6 +182,51 @@ export default function Home() {
 
             <div className={styles.formatsCard}>
               <div className={styles.formatsCardTitle}>
+                Гайд по сервісу
+              </div>
+
+              <div className={styles.formatsCardDescription}>
+                Для тих, хто хоче зрозуміти сервіс глибше — без складних схем і теорії.
+                Про увагу до деталей, поведінку в залі і відчуття гостя,
+                яке формується в кожному контакті.
+              </div>
+
+              <div className={styles.formatsCardList}>
+                <span>Підійде:</span>
+                <ul>
+                  <li>офіціантам</li>
+                  <li>адміністраторам</li>
+                  <li>власникам</li>
+                </ul>
+              </div>
+
+              <div className={styles.formatsCardMeta}>
+                <div className={styles.metaItem}>
+                  <span className={styles.metaLabel}>формат</span>
+                  <span className={styles.metaDot}>-</span>
+                  <span className={styles.metaValue}>PDF</span>
+                </div>
+
+                <div className={styles.metaItem}>
+                  <span className={styles.metaLabel}>вартість</span>
+                  <span className={styles.metaDot}>-</span>
+                  <span className={styles.metaValue}>499 грн</span>
+                </div>
+              </div>
+
+              <button 
+                className={styles.button}
+                onClick={() => {                
+                  // window.location.href = "https://secure.wayforpay.com/button/ba581bd4eb2c1";
+                  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
+                Придбати
+              </button>
+            </div>
+
+            <div className={styles.formatsCard}>
+              <div className={styles.formatsCardTitle}>
                 Консультація для власника / керівника
               </div>
 
@@ -309,51 +354,6 @@ export default function Home() {
                 className={styles.button}
                 onClick={() => {
                                   // window.location.href = "https://secure.wayforpay.com/button/ba581bd4eb2c1";
-                  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-                }}
-              >
-                Придбати
-              </button>
-            </div>
-
-            <div className={styles.formatsCard}>
-              <div className={styles.formatsCardTitle}>
-                Гайд по сервісу
-              </div>
-
-              <div className={styles.formatsCardDescription}>
-                Для тих, хто хоче зрозуміти сервіс глибше — без складних схем і теорії.
-                Про увагу до деталей, поведінку в залі і відчуття гостя,
-                яке формується в кожному контакті.
-              </div>
-
-              <div className={styles.formatsCardList}>
-                <span>Підійде:</span>
-                <ul>
-                  <li>офіціантам</li>
-                  <li>адміністраторам</li>
-                  <li>власникам</li>
-                </ul>
-              </div>
-
-              <div className={styles.formatsCardMeta}>
-                <div className={styles.metaItem}>
-                  <span className={styles.metaLabel}>формат</span>
-                  <span className={styles.metaDot}>-</span>
-                  <span className={styles.metaValue}>PDF</span>
-                </div>
-
-                <div className={styles.metaItem}>
-                  <span className={styles.metaLabel}>вартість</span>
-                  <span className={styles.metaDot}>-</span>
-                  <span className={styles.metaValue}>499 грн</span>
-                </div>
-              </div>
-
-              <button 
-                className={styles.button}
-                onClick={() => {                
-                  // window.location.href = "https://secure.wayforpay.com/button/ba581bd4eb2c1";
                   document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
                 }}
               >
