@@ -182,6 +182,52 @@ export default function Home() {
 
             <div className={styles.formatsCard}>
               <div className={styles.formatsCardTitle}>
+                Посібник менеджера ресторану
+              </div>
+
+              <div className={styles.formatsCardDescription}>
+                Посібник як інструмент для системної роботи над собою та своєю професією.
+                Для тих, хто готовий змінювати підходи, глибше розуміти управління рестораном
+                і працювати над результатом системно.
+              </div>
+
+              <div className={styles.formatsCardList}>
+                <span>Що всередині::</span>
+                <ul>
+                  <li>роль менеджера й управління командою</li>
+                  <li>гості та сервіс</li>
+                  <li>фінанси й аналітика</li>
+                  <li>операційний контроль</li>
+                  <li>кризові ситуації та професійний розвиток</li>
+                </ul>
+              </div>
+
+              <div className={styles.formatsCardMeta}>
+                <div className={styles.metaItem}>
+                  <span className={styles.metaLabel}>формат</span>
+                  <span className={styles.metaDot}>-</span>
+                  <span className={styles.metaValue}>PDF</span>
+                </div>
+
+                <div className={styles.metaItem}>
+                  <span className={styles.metaLabel}>вартість</span>
+                  <span className={styles.metaDot}>-</span>
+                  <span className={styles.metaValue}>1799 грн</span>
+                </div>
+              </div>
+
+              <button 
+                className={styles.button}
+                onClick={() => {                
+                  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
+                Придбати
+              </button>
+            </div>
+
+            <div className={styles.formatsCard}>
+              <div className={styles.formatsCardTitle}>
                 Гайд по сервісу
               </div>
 
@@ -453,6 +499,20 @@ export default function Home() {
                   } else {
                     setStatus("error");
                   }
+                } else if (data.interest === "manager-handbook") {
+                  const res = await fetch("/api/contact", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data),
+                  });
+                
+                  const result = await res.json();
+                
+                  if (result.success) {
+                    window.location.href = "https://secure.wayforpay.com/button/b89bae38832f7";
+                  } else {
+                    setStatus("error");
+                  }
                 }
               }}
             >
@@ -465,6 +525,7 @@ export default function Home() {
 
               <select name="interest" required>
                 <option value="">Оберіть формат</option>
+                <option value="manager-handbook">Посібник менеджера ресторану</option>
                 <option value="owner-consultation">Консультація для власника / керівника</option>
                 <option value="system-work">Системна робота з закладом</option>
                 <option value="staff-consultation">Консультація для працівників</option>
