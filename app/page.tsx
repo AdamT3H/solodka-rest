@@ -212,7 +212,7 @@ export default function Home() {
                 <div className={styles.metaItem}>
                   <span className={styles.metaLabel}>вартість</span>
                   <span className={styles.metaDot}>-</span>
-                  <span className={styles.metaValue}>1799 грн</span>
+                  <span className={styles.metaValue}>2399 грн</span>
                 </div>
               </div>
 
@@ -262,8 +262,7 @@ export default function Home() {
 
               <button 
                 className={styles.button}
-                onClick={() => {                
-                  // window.location.href = "https://secure.wayforpay.com/button/ba581bd4eb2c1";
+                onClick={() => {
                   document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
                 }}
               >
