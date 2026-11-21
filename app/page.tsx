@@ -212,7 +212,7 @@ export default function Home() {
                 <div className={styles.metaItem}>
                   <span className={styles.metaLabel}>вартість</span>
                   <span className={styles.metaDot}>-</span>
-                  <span className={styles.metaValue}>2399 грн</span>
+                  <span className={styles.metaValue}>1399 грн</span>
                 </div>
               </div>
 
@@ -256,7 +256,7 @@ export default function Home() {
                 <div className={styles.metaItem}>
                   <span className={styles.metaLabel}>вартість</span>
                   <span className={styles.metaDot}>-</span>
-                  <span className={styles.metaValue}>499 грн</span>
+                  <span className={styles.metaValue}>199 грн</span>
                 </div>
               </div>
 
